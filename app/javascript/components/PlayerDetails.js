@@ -5,6 +5,10 @@ export default class PlayerDetails extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log('component mounted')
+  }
+
   render() {
     return (
       <div>
