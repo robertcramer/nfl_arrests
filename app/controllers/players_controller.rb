@@ -2,6 +2,13 @@ class PlayersController < ApplicationController
 
   def index
     players = ArrestApi.new.top_players
+    players = players.map.with_index do |player, index|
+      player.merge({
+        key_name: player["Name"].gsub(' ', '_'),
+        key: index
+      })
+    end
+
     render json: players
   end
 

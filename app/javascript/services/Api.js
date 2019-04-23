@@ -1,7 +1,7 @@
 const apiHost = 'http://localhost:3000/api'
 
 export default class Api {
-  
+
   getPlayers() {
     return fetch(`${apiHost}/players`, {
       method: 'get',
@@ -10,7 +10,7 @@ export default class Api {
       }
     })
     .then(response => {
-      console.log(response)
+      return response.json()
     })
   }
 
@@ -22,7 +22,7 @@ export default class Api {
       }
     })
     .then(response => {
-      console.log(response)
+      return response.json()
     })
   }
 }
