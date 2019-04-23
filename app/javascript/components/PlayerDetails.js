@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, CardHeader, CardFooter, CardBody,
-  CardTitle, CardText } from 'reactstrap';
+  CardTitle, CardText, Spinner } from 'reactstrap';
 import Api from '../services/Api'
 
 export default class PlayerDetails extends React.Component {
@@ -18,6 +18,13 @@ export default class PlayerDetails extends React.Component {
   }
 
   render() {
+    if (this.state.arrests.length == 0) {
+      return (
+        <div className="text-center">
+          <Spinner style={{ width: '3rem', height: '3rem' }} />
+        </div>
+      )
+    }
     return (
       <div>
         <h2>Player Details: {this.props.match.params.playerName.replace('_', ' ')} - ({this.state.arrests.length} total arrests)</h2>

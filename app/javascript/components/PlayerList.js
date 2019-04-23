@@ -1,6 +1,6 @@
 import React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Badge } from 'reactstrap';
+import { Badge, Spinner } from 'reactstrap';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import Api from '../services/Api'
 
@@ -48,10 +48,16 @@ export default class PlayerList extends React.Component {
         }
       }
     ]
+    if (this.state.players.length == 0) {
+      return (
+        <div className="text-center">
+          <Spinner style={{ width: '3rem', height: '3rem' }} />
+        </div>
+      )
+    }
     return (
       <div>
           <BootstrapTable keyField='key' data={ this.state.players } columns={ columns } pagination={ paginationFactory() } />
-
       </div>
     );
   }
