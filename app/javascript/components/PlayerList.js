@@ -43,16 +43,15 @@ export default class PlayerList extends React.Component {
         text: 'Action',
         formatter: (cellContent, row) => {
           return (
-            <Badge href={`/player/${row.key_name}`} color="info">View Details</Badge>
+            <Badge href={`/player/${row.key_name}`} color="primary">View Details</Badge>
           );
         }
       }
     ]
     return (
       <div>
-        {this.state.players.length > 0 &&
           <BootstrapTable keyField='key' data={ this.state.players } columns={ columns } pagination={ paginationFactory() } />
-        }
+
       </div>
     );
   }

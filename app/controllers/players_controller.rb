@@ -14,7 +14,7 @@ class PlayersController < ApplicationController
 
   def details
     # add %20 to represent whitespace
-    details = ArrestApi.new.player_details(params[:player_name])
+    details = ArrestApi.new.player_details(params[:player_name].gsub('_', '%20'))
     render json: details
   end
 end
